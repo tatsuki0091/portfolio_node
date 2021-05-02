@@ -1,0 +1,33 @@
+{
+  "name": "portfolio_with_node",
+  "version": "1.0.0",
+  "description": "// package.json 作成 // オプションで y をつける場合はデフォルトの設定という意味 npm init -y",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tatsuki0091/portfolio_with_node.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tatsuki0091/portfolio_with_node/issues"
+  },
+  "homepage": "https://github.com/tatsuki0091/portfolio_with_node#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "morgan": "^1.10.0",
+    "nodemailer": "^6.6.0"
+  },
+  "devDependencies": {
+    "node-env-run": "^4.0.2",
+    "nodemon": "^2.0.7"
+  }
+}
