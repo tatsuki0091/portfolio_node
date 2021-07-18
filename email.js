@@ -21,9 +21,6 @@ function sendMail(smtpData, mailData) {
 }
 
 module.exports = function (app) {
-  app.get("/send_email", function (req, res, next) {
-    res.send(["apple", "orange", "strawberry"]);
-  });
   app.post("/send_email", function (req, res, next) {
     // SMTP情報を設定
     const smtpData = {
