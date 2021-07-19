@@ -11,8 +11,7 @@ const email = require("./email");
 app.use(morgan("combined"));
 app.use(
   cors({
-    origin: "https://localhost:3000",
-    origin: "http://localhost:3000",
+    origin: "http://localhost:3000/*",
   })
 );
 app.use(bodyParser.json({ type: "*/*" }));
