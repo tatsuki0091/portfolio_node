@@ -7,11 +7,6 @@ const morgan = require("morgan");
 const app = express();
 const email = require("./email");
 
-// Appの設定
-app.use(morgan("combined"));
-
-app.use(bodyParser.json({ type: "*/*" }));
-
 app.configure(function () {
   app.use(allowCrossDomain);
   app.use(express.bodyParser());
@@ -22,10 +17,14 @@ app.configure(function () {
   app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
 });
 
+// Appの設定
+app.use(morgan("combined"));
+
+app.use(bodyParser.json({ type: "*/*" }));
+
 app.use(
   cors({
     origin: "http://localhost:3000/",
-    credentials: true,
   })
 );
 
