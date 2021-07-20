@@ -37,11 +37,11 @@ app.options("*", function (req, res) {
   res.sendStatus(200);
 });
 
-app.use(
-  cors({
-    origin: "http://localhost:3000/",
-  })
-);
+// app.use(
+//   cors({
+//     origin: "http://localhost:3000/",
+//   })
+// );
 
 email(app);
 
