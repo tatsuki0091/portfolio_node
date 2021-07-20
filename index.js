@@ -9,12 +9,7 @@ const email = require("./email");
 
 // Appの設定
 app.use(morgan("combined"));
-app.use(
-  cors({
-    origin: "http://localhost:3000/",
-    credentials: true,
-  })
-);
+
 app.use(bodyParser.json({ type: "*/*" }));
 
 app.use(function (req, res, next) {
@@ -35,6 +30,14 @@ app.use(function (req, res, next) {
 app.options("*", function (req, res) {
   res.sendStatus(200);
 });
+
+app.use(
+  cors({
+    origin: "http://localhost:3000/",
+    credentials: true,
+  })
+);
+
 email(app);
 
 // Serverの設定
