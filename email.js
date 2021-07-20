@@ -32,16 +32,16 @@ module.exports = function (app) {
       secure: true,
       auth: {
         // メールアドレス（自身のアドレスを指定）
-        user: process.env.MY_EMAIL_ADDRESS,
+        user: process.env.NODE_MY_EMAIL_ADDRESS,
         // パスワード（自身のパスワードを指定）
-        pass: process.env.APPLICATION_PASSWORD,
+        pass: process.env.NODE_APPLICATION_PASSWORD,
       },
     };
 
     // 送信内容を作成
     const mailData = {
       from: req.body.email, // 送信元名
-      to: process.env.TO_EMAIL_ADDRESS, // 送信先
+      to: process.env.NODE_TO_EMAIL_ADDRESS, // 送信先
       subject: req.body.subject, // 件名
       text: req.body.message, // 通常のメール本文
       html: req.body.message, // HTMLメール
