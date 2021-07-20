@@ -7,6 +7,11 @@ const morgan = require("morgan");
 const app = express();
 const email = require("./email");
 
+app.get("/robots.txt", function (req, res) {
+  res.type("text/plain");
+  res.send("User-agent: *\nDisallow: /");
+});
+
 // Appの設定
 app.use(morgan("combined"));
 
