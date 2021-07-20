@@ -4,6 +4,7 @@
   "description": "// package.json 作成 // オプションで y をつける場合はデフォルトの設定という意味 npm init -y",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon index.js"
   },
