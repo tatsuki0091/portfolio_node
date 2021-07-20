@@ -18,7 +18,8 @@ app.use(morgan("combined"));
 app.use(bodyParser.json({ type: "*/*" }));
 
 app.use(function (req, res, next) {
-  res.header("Access-Control-Allow-Origin", req.headers.origin);
+  res.header("Access-Control-Allow-Origin", req.header("Origin"));
+  // res.header("Access-Control-Allow-Origin", req.headers.origin);
   res.header(
     "Access-Control-Allow-Headers",
     "X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept"
