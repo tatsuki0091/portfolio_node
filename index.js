@@ -9,12 +9,7 @@ const email = require("./email");
 
 // Appの設定
 app.use(morgan("combined"));
-app.use(
-  cors({
-    origin: "http://localhost:3000/",
-    credentials: true,
-  })
-);
+
 app.use(bodyParser.json({ type: "*/*" }));
 
 app.use(function (req, res, next) {
@@ -28,6 +23,13 @@ app.use(function (req, res, next) {
   res.header("Access-Control-Max-Age", "86400");
   next();
 });
+
+app.use(
+  cors({
+    origin: "http://localhost:3000/",
+    credentials: true,
+  })
+);
 
 /**
  \* OPTIONSメソッドの実装
