@@ -9,15 +9,25 @@ const email = require("./email");
 
 // Appの設定
 app.use(morgan("combined"));
-
-app.use(bodyParser.json({ type: "*/*" }));
-
 app.use(
   cors({
     origin: "http://localhost:3000/",
     credentials: true,
   })
 );
+app.use(bodyParser.json({ type: "*/*" }));
+
+app.use(function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", req.headers.origin);
+  res.header(
+    "Access-Control-Allow-Headers",
+    "X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept"
+  );
+  res.header("Access-Control-Allow-Methods", "POST, GET, PUT, DELETE, OPTIONS");
+  res.header("Access-Control-Allow-Credentials", true);
+  res.header("Access-Control-Max-Age", "86400");
+  next();
+});
 
 /**
  \* OPTIONSメソッドの実装
@@ -26,15 +36,6 @@ app.options("*", function (req, res) {
   res.sendStatus(200);
 });
 email(app);
-
-app.configure(function () {
-  app.use(express.bodyParser());
-  app.use(express.methodOverride());
-  app.use(app.router);
-  app.use(allowCrossDomain);
-  app.use(express.static(path.join(application_root, "public")));
-  app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
-});
 
 // Serverの設定
 const port = process.env.PORT || 3000;
