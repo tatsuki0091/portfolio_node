@@ -38,7 +38,7 @@ app.options("*", function (req, res) {
 
 app.use(
   cors({
-    origin: "http://localhost:3000/",
+    origin: "https://localhost:3000/",
     credentials: true,
   })
 );
