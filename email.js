@@ -40,7 +40,7 @@ module.exports = function (app) {
 
     // 送信内容を作成
     const mailData = {
-      from: req.body.email, // 送信元名
+      from: req.body.email + `<alias@mail.com>`, // 送信元名
       to: process.env.NODE_TO_EMAIL_ADDRESS, // 送信先
       subject: req.body.subject, // 件名
       text: req.body.message, // 通常のメール本文
